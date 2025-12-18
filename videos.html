@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English</title>
+</head>
+<body>
+
+<h1>English</h1>
+
+<!-- Botones para seleccionar medios -->
+<button onclick="cargarAudio('archivos/audio1.mp3')">AUDIO1</button>
+
+<button onclick="cargarVideo('videos/cthulhu.mp4')">Asesinato en la Mansión Cthulhu</button>
+
+<!-- Reproductor de audio -->
+<audio id="reproductorAudio" controls>
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<!-- Reproductor de video -->
+<video id="reproductorVideo" width="640" height="360" controls hidden>
+    Tu navegador no soporta el elemento de video.
+</video>
+
+<script>
+    // Función para cargar y reproducir audio
+    function cargarAudio(archivo) {
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el video si está en reproducción
+        reproductorVideo.pause();
+        reproductorVideo.hidden = true;  // Ocultar el reproductor de video
+
+        // Configurar el archivo de audio y reproducirlo
+        reproductorAudio.src = archivo;
+        reproductorAudio.hidden = false;  // Mostrar el reproductor de audio
+        reproductorAudio.play();
+    }
+
+    // Función para cargar y reproducir video
+    function cargarVideo(archivo) {
+        const reproductorAudio = document.getElementById("reproductorAudio");
+        const reproductorVideo = document.getElementById("reproductorVideo");
+
+        // Pausar el audio si está en reproducción
+        reproductorAudio.pause();
+        reproductorAudio.hidden = true;  // Ocultar el reproductor de audio
+
+        // Configurar el archivo de video y reproducirlo
+        reproductorVideo.src = archivo;
+        reproductorVideo.hidden = false;  // Mostrar el reproductor de video
+        reproductorVideo.play();
+    }
+</script>
+
+  <h1>Apocalipsis Zombi</h1>
+        <a href="archivos/z_noticiario.pdf" target="_blank" download>Noticiario Guía</a>
+        <a href="archivos/z_colegio.pdf" target="_blank" download>Enclave Escolar Guía</a>
+	<button onclick="cargarVideo('archivos/z_noticiario.mp4')">Noticiario</button>
+	<button onclick="cargarVideo('archivos/z_colegio.mp4')">Enclave Escolar</button>
+
+</body>
+</html>
