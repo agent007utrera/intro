@@ -3,68 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mystery in the Box</title>
+    <title>Mystery in the Box | Dossier de Evidencias</title>
+    <style>
+        /* Estilos de atmósfera Noir/Misterio */
+        body {
+            background-color: #1a1a1a;
+            background-image: radial-gradient(circle, #2c2c2c 0%, #000000 100%);
+            color: #d4d4d4;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 30px;
+            border: 1px solid #444;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(139, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #8b0000; /* Rojo sangre */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        h1:first-of-type { margin-top: 0; }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Botones estilo "Etiqueta de Evidencia" */
+        button {
+            background: #2a2a2a;
+            color: #b0b0b0;
+            border: 1px solid #555;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+
+        button:hover {
+            background: #8b0000;
+            color: white;
+            border-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Contenedores de reproductores */
+        .player-zone {
+            margin: 30px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: #000;
+            border: 4px double #444;
+            min-height: 50px;
+        }
+
+        audio, video {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .status-tag {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #333;
+            margin: 40px 0;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Reproductor</h1>
+<div class="container">
+    <span class="status-tag">ARCHIVO CONFIDENCIAL #842-B</span>
+    <h1>Interrogatorios (Audio)</h1>
+    <div class="evidence-grid">
+        <button onclick="cargarAudio('archivos/audio1.mp3')">📁 Escuchar Grabación 1</button>
+    </div>
 
-<!-- Botones para seleccionar medios -->
-<button onclick="cargarAudio('archivos/audio1.mp3')">AUDIO1</button>
+    <div class="player-zone">
+        <audio id="reproductorAudio" controls hidden>
+            Tu navegador no soporta el elemento de audio.
+        </audio>
 
+        <video id="reproductorVideo" controls hidden>
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
 
-<!-- Reproductor de audio -->
-<audio id="reproductorAudio" controls>
-    Tu navegador no soporta el elemento de audio.
-</audio>
+    <h1>Expedientes Visuales</h1>
+    <div class="evidence-grid">
+        <button onclick="cargarVideo('videos/cthulhu.mp4')">👁️ Mansión Cthulhu</button>
+        <button onclick="cargarVideo('videos/lobos.mp4')">🐺 Lobos Crepusculares</button>
+        <button onclick="cargarVideo('videos/luna.mp4')">🌙 Bajo la Luna Azul</button>
+        <button onclick="cargarVideo('videos/bruja.mp4')">🕯️ La Bruja del Crepúsculo</button>
+        <button onclick="cargarVideo('videos/muertos.mp4')">💀 Muertos Vivientes</button>
+    </div>
 
-<!-- Reproductor de video -->
-<video id="reproductorVideo" width="640" height="360" controls hidden>
-    Tu navegador no soporta el elemento de video.
-</video>
+    <h1>Archivos Clasificados</h1>
+    <div class="evidence-grid">
+        <button onclick="cargarVideo('videos/quarentena.mp4')">☣️ Quarentena</button>
+        <button onclick="cargarVideo('videos/refugio.mp4')">🛡️ Refugio</button>
+    </div>
+</div>
 
 <script>
-    // Función para cargar y reproducir audio
+    const reproductorAudio = document.getElementById("reproductorAudio");
+    const reproductorVideo = document.getElementById("reproductorVideo");
+
     function cargarAudio(archivo) {
-        const reproductorAudio = document.getElementById("reproductorAudio");
-        const reproductorVideo = document.getElementById("reproductorVideo");
-
-        // Pausar el video si está en reproducción
         reproductorVideo.pause();
-        reproductorVideo.hidden = true;  // Ocultar el reproductor de video
+        reproductorVideo.hidden = true;
 
-        // Configurar el archivo de audio y reproducirlo
         reproductorAudio.src = archivo;
-        reproductorAudio.hidden = false;  // Mostrar el reproductor de audio
+        reproductorAudio.hidden = false;
         reproductorAudio.play();
     }
 
-    // Función para cargar y reproducir video
     function cargarVideo(archivo) {
-        const reproductorAudio = document.getElementById("reproductorAudio");
-        const reproductorVideo = document.getElementById("reproductorVideo");
-
-        // Pausar el audio si está en reproducción
         reproductorAudio.pause();
-        reproductorAudio.hidden = true;  // Ocultar el reproductor de audio
+        reproductorAudio.hidden = true;
 
-        // Configurar el archivo de video y reproducirlo
         reproductorVideo.src = archivo;
-        reproductorVideo.hidden = false;  // Mostrar el reproductor de video
+        reproductorVideo.hidden = false;
         reproductorVideo.play();
     }
 </script>
-
-  <h1>Mystery in the Box - Vídeos</h1>
-<button onclick="cargarVideo('videos/cthulhu.mp4')">Asesinato en la Mansión Cthulhu</button><br>
-<button onclick="cargarVideo('videos/lobos.mp4')">El cuento de los lobos crepusculares</button><br>
-<button onclick="cargarVideo('videos/luna.mp4')">Bajo la luna azul</button><br>
-<button onclick="cargarVideo('videos/bruja.mp4')">La bruja que vino con el crepúsculo</button><br>
-<button onclick="cargarVideo('videos/muertos.mp4')">El misterio de los muertos vivientes</button><br>
-
-  <h1>Varios - Vídeos</h1>
-<button onclick="cargarVideo('videos/quarentena.mp4')">Quarentena</button><br>
-<button onclick="cargarVideo('videos/refugio.mp4')">Refugio</button><br>
 
 </body>
 </html>
