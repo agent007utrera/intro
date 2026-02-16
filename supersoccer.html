@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPERSOCCER</title>
+    <title>SUPERSOCCER 2026</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:wght@400;700;900&display=swap');
 
@@ -342,23 +342,23 @@
         
         let msg = "";
         switch(ev) {
-            case 1: msg = `VAR: SE ANULA EL ÚLTIMO GOL MARCADO POR EL <strong>${equipo}</strong>.`; break;
+            case 1: msg = `📺 VAR: SE ANULA EL ÚLTIMO GOL MARCADO POR EL <strong>${equipo}</strong>.`; break;
             case 2:
                 const semanas = Math.floor(Math.random() * 6) + 1;
-                msg = `LESIONADO EL <strong>${pos}</strong> DEL <strong>${equipo}</strong>. ESTARÁ <strong>${semanas}</strong> SEMANAS SIN JUGAR.`;
+                msg = `🚑 LESIONADO EL <strong>${pos}</strong> DEL <strong>${equipo}</strong>. ESTARÁ <strong>${semanas}</strong> SEMANAS SIN JUGAR.`;
                 break;
-            case 3: msg = `EXPULSADO EL <strong>${pos}</strong> DEL <strong>${equipo}</strong>. ESTARÁ <strong>1 PARTIDO</strong> SIN JUGAR.`; break;
+            case 3: msg = `🔴 EXPULSADO EL <strong>${pos}</strong> DEL <strong>${equipo}</strong>. ESTARÁ <strong>1 PARTIDO</strong> SIN JUGAR.`; break;
             case 4:
-                msg = `PENALTI A FAVOR DEL <strong>${equipo}</strong>. CON 4, 5 O 6 ES GOL.`;
+                msg = `🥅 PENALTI A FAVOR DEL <strong>${equipo}</strong>. CON 4, 5 O 6 ES GOL.`;
                 document.getElementById('penaltyZone').style.display = 'block';
                 document.getElementById('btnNextJornada').style.visibility = 'hidden';
                 break;
-            case 5: msg = `EL <strong>${pos}</strong> DEL <strong>${equipo}</strong> HA PAGADO SU CLÁUSULA Y SE HA MARCHADO A OTRO EQUIPO.`; break;
+            case 5: msg = `🏃 EL <strong>${pos}</strong> DEL <strong>${equipo}</strong> HA PAGADO SU CLÁUSULA Y SE HA MARCHADO A OTRO EQUIPO.`; break;
             case 6:
                 const esMulta = Math.random() > 0.5;
                 msg = esMulta ? 
-                    `EL <strong>${equipo}</strong> HA SIDO MULTADO CON <strong>10 MILLONES</strong>.` : 
-                    `EL <strong>${equipo}</strong> HA INGRESADO <strong>10 MILLONES</strong> POR PUBLICIDAD.`;
+                    `🏁 EL <strong>${equipo}</strong> HA SIDO MULTADO CON <strong>10 MILLONES</strong>.` : 
+                    `🎫 EL <strong>${equipo}</strong> HA INGRESADO <strong>10 MILLONES</strong> POR PUBLICIDAD.`;
                 break;
         }
 
